@@ -8,6 +8,7 @@ namespace LibraryManager.DataModels
         public Context() : base("name=Context") { }
         public DbSet<Book> Books { get; set; }
         public DbSet<Library> Libraries { get; set; }
+        public DbSet<Client > Clients { get; set; }
 
     }
 }

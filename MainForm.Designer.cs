@@ -21,5 +21,12 @@
         }
 
         private System.Windows.Forms.ListBox BookList;
+        private System.Windows.Forms.ListBox ClientList;
+        private System.Windows.Forms.Button addBookButton;
+        private System.Windows.Forms.Button deleteBookButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button addClientButton;
+        private System.Windows.Forms.Button deleteClientButton;
     }
 }

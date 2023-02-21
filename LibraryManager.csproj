@@ -56,10 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBookForm.Designer.cs">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientForm.Designer.cs">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\Book.cs" />
+    <Compile Include="DataModels\Client.cs" />
     <Compile Include="DataModels\Context.cs" />
     <Compile Include="DataModels\Library.cs" />
     <Compile Include="Logic\BookData.cs" />
+    <Compile Include="Logic\ClientData.cs" />
     <Compile Include="Logic\LibraryData.cs" />
     <Compile Include="Logic\Logic.cs" />
     <Compile Include="MainForm.cs">
@@ -68,18 +82,31 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302201357316_init.cs" />
-    <Compile Include="Migrations\202302201357316_init.designer.cs">
-      <DependentUpon>202302201357316_init.cs</DependentUpon>
+    <Compile Include="Migrations\202302211705138_intial.cs" />
+    <Compile Include="Migrations\202302211705138_intial.designer.cs">
+      <DependentUpon>202302211705138_intial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302211723016_secondary.cs" />
+    <Compile Include="Migrations\202302211723016_secondary.designer.cs">
+      <DependentUpon>202302211723016_secondary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddBookForm.resx">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClientForm.resx">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302201357316_init.resx">
-      <DependentUpon>202302201357316_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302211705138_intial.resx">
+      <DependentUpon>202302211705138_intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302211723016_secondary.resx">
+      <DependentUpon>202302211723016_secondary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

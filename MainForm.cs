@@ -21,92 +21,193 @@ namespace LibraryManager
         {
             InitializeComponent();
 
-            var books = new List<Book>
-            {
-        //     new Book
-        //{
-        //    ISBN = "9780590353403",
-        //    Title = "Harry Potter and the Philosopher's Stone",
-        //    Author = "J.K. Rowling",
-        //    PublicationDate = new DateTime(1997, 6, 26),
-        //    Publisher = "Bloomsbury Publishing",
-        //    Genre = "Fantasy",
-        //    Summary = "Harry Potter has never played a sport while flying on a broomstick. He's never worn a cloak of invisibility, befriended a giant, or helped hatch a dragon. All Harry knows is a miserable life with the Dursleys, his horrible aunt and uncle, and their abominable son, Dudley. Harry's room is a tiny cupboard under the stairs, and he hasn't had a birthday party in ten years.",
-        //    CoverImage = "harry_potter_philosophers_stone.jpg",
-        //    Rating = 4.5
-        //},
-        //     new Book
-        //{
-        //    ISBN = "9780439554930",
-        //    Title = "Harry Potter and the Chamber of Secrets",
-        //    Author = "J.K. Rowling",
-        //    PublicationDate = new DateTime(1998, 7, 2),
-        //    Publisher = "Bloomsbury Publishing",
-        //    Genre = "Fantasy",
-        //    Summary = "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to the Hogwarts School of Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange, impish creature named Dobby who says that if Harry Potter returns to Hogwarts, disaster will strike.",
-        //    CoverImage = "harry_potter_chamber_of_secrets.jpg",
-        //    Rating = 4.4
-        //},
-        //     new Book
-        //{
-        //    ISBN = "9780439554909",
-        //    Title = "Harry Potter and the Prisoner of Azkaban",
-        //    Author = "J.K. Rowling",
-        //    PublicationDate = new DateTime(1999, 9, 8),
-        //    Publisher = "Bloomsbury Publishing",
-        //    Genre = "Fantasy",
-        //    Summary = "Harry Potter is lucky to reach the age of thirteen, since he has survived the murderous attacks of the feared Dark Lord on more than one occasion. But his hopes for a quiet term concentrating on Quidditch are dashed when a maniacal mass-murderer escapes from Azkaban, pursued by the soul-sucking Dementors who guard the prison.",
-        //    CoverImage = "harry_potter_prisoner_of_azkaban.jpg",
-        //    Rating = 4.5
-        //}
-            };
+            BookList.DataSource = context.Books.ToList();
+            BookList.DisplayMember = "Title";
 
-            foreach (var book in books) //var was used here to add the first books into the db for testing
-            {
-                context.Books.Add(book);
-            }
+            ClientList.DataSource = context.Clients.ToList();
+            ClientList.DisplayMember = "Name";
 
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                foreach (var error in ex.EntityValidationErrors)
-                {
-                    Console.WriteLine("Validation error(s) for entity {0}", error.Entry.Entity.GetType().Name);
-                    foreach (var errorMsg in error.ValidationErrors)
-                    {
-                        Console.WriteLine("- {0}: {1}", errorMsg.PropertyName, errorMsg.ErrorMessage);
-                    }
-                }
-            }
+            AddBookForm addBookForm = new AddBookForm(context, this);
 
+        }
 
+        // add/delete books
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddBookForm addBookForm = new AddBookForm(context, this);
+            addBookForm.ShowDialog();
+        }
+
+        public void OnBookAdded(object sender, EventArgs e)
+        {
+            BookList.DataSource = null;
             BookList.DataSource = context.Books.ToList();
             BookList.DisplayMember = "Title";
         }
+        private void deleteBookButton_Click(object sender, EventArgs e)
+        {
+            Book selectedBook = BookList.SelectedItem as Book;
+
+            if (selectedBook == null)
+            {
+                MessageBox.Show("Please select a book to delete.");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this book?", "Confirmation", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    context.Books.Remove(selectedBook);
+                    context.SaveChanges();
+                    BookList.DataSource = null;
+                    BookList.DataSource = context.Books.ToList();
+                    BookList.DisplayMember = "Title";
+                }
+            }
+        }
+
+        // add/delete clients
+
+        private void addClientButton_Click(object sender, EventArgs e)
+        {
+            AddClientForm addClientForm = new AddClientForm(context, this);
+            addClientForm.ShowDialog();
+        }
+
+        public void OnClientAdded(object sender, EventArgs e)
+        {
+            ClientList.DataSource = null;
+            ClientList.DataSource = context.Clients.ToList();
+            ClientList.DisplayMember = "Name";
+        }
+        private void deleteClientButton_Click(object sender, EventArgs e)
+        {
+            Client selectedClient = ClientList.SelectedItem as Client;
+
+            if (selectedClient == null)
+            {
+                MessageBox.Show("Please select a client to delete.");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this client?", "Confirmation", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    context.Clients.Remove(selectedClient);
+                    context.SaveChanges();
+                    ClientList.DataSource = null;
+                    ClientList.DataSource = context.Clients.ToList();
+                    ClientList.DisplayMember = "Name";
+                }
+            }
+        }
+
+
 
         private void InitializeComponent()
         {
             this.BookList = new System.Windows.Forms.ListBox();
+            this.ClientList = new System.Windows.Forms.ListBox();
+            this.addBookButton = new System.Windows.Forms.Button();
+            this.deleteBookButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.addClientButton = new System.Windows.Forms.Button();
+            this.deleteClientButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BookList
             // 
             this.BookList.FormattingEnabled = true;
-            this.BookList.Location = new System.Drawing.Point(12, 12);
+            this.BookList.Location = new System.Drawing.Point(12, 38);
             this.BookList.Name = "BookList";
-            this.BookList.Size = new System.Drawing.Size(182, 381);
+            this.BookList.Size = new System.Drawing.Size(251, 355);
             this.BookList.TabIndex = 0;
             this.BookList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
+            // ClientList
+            // 
+            this.ClientList.FormattingEnabled = true;
+            this.ClientList.Location = new System.Drawing.Point(533, 40);
+            this.ClientList.Name = "ClientList";
+            this.ClientList.Size = new System.Drawing.Size(182, 355);
+            this.ClientList.TabIndex = 1;
+            this.ClientList.SelectedIndexChanged += new System.EventHandler(this.ClientList_SelectedIndexChanged);
+            // 
+            // addBookButton
+            // 
+            this.addBookButton.Location = new System.Drawing.Point(323, 64);
+            this.addBookButton.Name = "addBookButton";
+            this.addBookButton.Size = new System.Drawing.Size(112, 46);
+            this.addBookButton.TabIndex = 2;
+            this.addBookButton.Text = "AddBook";
+            this.addBookButton.UseVisualStyleBackColor = true;
+            this.addBookButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // deleteBookButton
+            // 
+            this.deleteBookButton.Location = new System.Drawing.Point(323, 116);
+            this.deleteBookButton.Name = "deleteBookButton";
+            this.deleteBookButton.Size = new System.Drawing.Size(112, 48);
+            this.deleteBookButton.TabIndex = 3;
+            this.deleteBookButton.Text = "Delete Book";
+            this.deleteBookButton.UseVisualStyleBackColor = true;
+            this.deleteBookButton.Click += new System.EventHandler(this.deleteBookButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(98, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Book List:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(596, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Client List:";
+            // 
+            // addClientButton
+            // 
+            this.addClientButton.Location = new System.Drawing.Point(323, 170);
+            this.addClientButton.Name = "addClientButton";
+            this.addClientButton.Size = new System.Drawing.Size(112, 46);
+            this.addClientButton.TabIndex = 6;
+            this.addClientButton.Text = "Add Client";
+            this.addClientButton.UseVisualStyleBackColor = true;
+            this.addClientButton.Click += new System.EventHandler(this.addClientButton_Click);
+            // 
+            // deleteClientButton
+            // 
+            this.deleteClientButton.Location = new System.Drawing.Point(323, 222);
+            this.deleteClientButton.Name = "deleteClientButton";
+            this.deleteClientButton.Size = new System.Drawing.Size(112, 46);
+            this.deleteClientButton.TabIndex = 7;
+            this.deleteClientButton.Text = "Delete Client";
+            this.deleteClientButton.UseVisualStyleBackColor = true;
+            this.deleteClientButton.Click += new System.EventHandler(this.deleteClientButton_Click);
+            // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(601, 521);
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ClientSize = new System.Drawing.Size(727, 407);
+            this.Controls.Add(this.deleteClientButton);
+            this.Controls.Add(this.addClientButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.deleteBookButton);
+            this.Controls.Add(this.addBookButton);
+            this.Controls.Add(this.ClientList);
             this.Controls.Add(this.BookList);
             this.Name = "MainForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -114,5 +215,12 @@ namespace LibraryManager
         {
 
         }
+
+        private void ClientList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

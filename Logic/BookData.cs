@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using LibraryManager.DataModels;
 
 public class BookData
 {
