@@ -63,7 +63,7 @@ namespace LibraryManager
                     }
                 }
 
-                MessageBox.Show($"An error occurred while adding the client:\n\n{sb.ToString()}");
+                MessageBox.Show($"An error occurred while adding the book:\n\n{sb.ToString()}");
                 return;
             }
 

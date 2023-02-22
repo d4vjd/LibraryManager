@@ -38,10 +38,10 @@ namespace LibraryManager
                 return;
             }
 
-            int nextClientId = context.Clients.OrderByDescending(c => c.ClientId).FirstOrDefault().ClientId + 1;
+            int nextClientId = context.Clients.OrderByDescending(c => c.Id).FirstOrDefault().Id + 1;
             Client client = new Client
             {
-                ClientId = nextClientId,
+                Id = nextClientId,
                 Name = nameTextBox.Text,
                 Email = emailTextBox.Text,
                 JoinDate = joinDateTimePicker.Value

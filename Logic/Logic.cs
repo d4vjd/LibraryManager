@@ -71,7 +71,7 @@ namespace LibraryManager.Logic
 
         public Client SearchById(int id)
         {
-            return context.Clients.FirstOrDefault(c => c.ClientId == id);
+            return context.Clients.FirstOrDefault(c => c.Id == id);
         }
 
         public void BorrowBook(Client client, Book book)

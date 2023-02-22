@@ -12,7 +12,7 @@ namespace LibraryManager.DataModels
     {
         [Key]
         [Required]
-        public int ClientId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -68,10 +68,21 @@
     <Compile Include="AddClientForm.Designer.cs">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowBookForm.Designer.cs">
+      <DependentUpon>BorrowBookForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\Book.cs" />
     <Compile Include="DataModels\Client.cs" />
     <Compile Include="DataModels\Context.cs" />
     <Compile Include="DataModels\Library.cs" />
+    <Compile Include="LibraryManagerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryManagerDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Logic\BookData.cs" />
     <Compile Include="Logic\ClientData.cs" />
     <Compile Include="Logic\LibraryData.cs" />
@@ -82,13 +93,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302211705138_intial.cs" />
-    <Compile Include="Migrations\202302211705138_intial.designer.cs">
-      <DependentUpon>202302211705138_intial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202302211723016_secondary.cs" />
-    <Compile Include="Migrations\202302211723016_secondary.designer.cs">
-      <DependentUpon>202302211723016_secondary.cs</DependentUpon>
+    <Compile Include="Migrations\202302221552313_intial.cs" />
+    <Compile Include="Migrations\202302221552313_intial.designer.cs">
+      <DependentUpon>202302221552313_intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -99,14 +106,14 @@
     <EmbeddedResource Include="AddClientForm.resx">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BorrowBookForm.resx">
+      <DependentUpon>BorrowBookForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302211705138_intial.resx">
-      <DependentUpon>202302211705138_intial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302211723016_secondary.resx">
-      <DependentUpon>202302211723016_secondary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302221552313_intial.resx">
+      <DependentUpon>202302221552313_intial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +124,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="LibraryManagerDataSet.xsc">
+      <DependentUpon>LibraryManagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryManagerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibraryManagerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LibraryManagerDataSet.xss">
+      <DependentUpon>LibraryManagerDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

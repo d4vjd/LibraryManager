@@ -115,6 +115,7 @@ namespace LibraryManager
             this.label2 = new System.Windows.Forms.Label();
             this.addClientButton = new System.Windows.Forms.Button();
             this.deleteClientButton = new System.Windows.Forms.Button();
+            this.borrowBookButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BookList
@@ -137,21 +138,21 @@ namespace LibraryManager
             // 
             // addBookButton
             // 
-            this.addBookButton.Location = new System.Drawing.Point(323, 64);
+            this.addBookButton.Location = new System.Drawing.Point(323, 38);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(112, 46);
+            this.addBookButton.Size = new System.Drawing.Size(133, 46);
             this.addBookButton.TabIndex = 2;
-            this.addBookButton.Text = "AddBook";
+            this.addBookButton.Text = "Add book";
             this.addBookButton.UseVisualStyleBackColor = true;
             this.addBookButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // deleteBookButton
             // 
-            this.deleteBookButton.Location = new System.Drawing.Point(323, 116);
+            this.deleteBookButton.Location = new System.Drawing.Point(323, 90);
             this.deleteBookButton.Name = "deleteBookButton";
-            this.deleteBookButton.Size = new System.Drawing.Size(112, 48);
+            this.deleteBookButton.Size = new System.Drawing.Size(133, 48);
             this.deleteBookButton.TabIndex = 3;
-            this.deleteBookButton.Text = "Delete Book";
+            this.deleteBookButton.Text = "Delete book";
             this.deleteBookButton.UseVisualStyleBackColor = true;
             this.deleteBookButton.Click += new System.EventHandler(this.deleteBookButton_Click);
             // 
@@ -175,28 +176,39 @@ namespace LibraryManager
             // 
             // addClientButton
             // 
-            this.addClientButton.Location = new System.Drawing.Point(323, 170);
+            this.addClientButton.Location = new System.Drawing.Point(323, 144);
             this.addClientButton.Name = "addClientButton";
-            this.addClientButton.Size = new System.Drawing.Size(112, 46);
+            this.addClientButton.Size = new System.Drawing.Size(133, 46);
             this.addClientButton.TabIndex = 6;
-            this.addClientButton.Text = "Add Client";
+            this.addClientButton.Text = "Add client";
             this.addClientButton.UseVisualStyleBackColor = true;
             this.addClientButton.Click += new System.EventHandler(this.addClientButton_Click);
             // 
             // deleteClientButton
             // 
-            this.deleteClientButton.Location = new System.Drawing.Point(323, 222);
+            this.deleteClientButton.Location = new System.Drawing.Point(323, 196);
             this.deleteClientButton.Name = "deleteClientButton";
-            this.deleteClientButton.Size = new System.Drawing.Size(112, 46);
+            this.deleteClientButton.Size = new System.Drawing.Size(133, 46);
             this.deleteClientButton.TabIndex = 7;
-            this.deleteClientButton.Text = "Delete Client";
+            this.deleteClientButton.Text = "Delete client";
             this.deleteClientButton.UseVisualStyleBackColor = true;
             this.deleteClientButton.Click += new System.EventHandler(this.deleteClientButton_Click);
+            // 
+            // borrowBookButton
+            // 
+            this.borrowBookButton.Location = new System.Drawing.Point(323, 248);
+            this.borrowBookButton.Name = "borrowBookButton";
+            this.borrowBookButton.Size = new System.Drawing.Size(133, 58);
+            this.borrowBookButton.TabIndex = 8;
+            this.borrowBookButton.Text = "Borrow book / See borrowed books / Return book";
+            this.borrowBookButton.UseVisualStyleBackColor = true;
+            this.borrowBookButton.Click += new System.EventHandler(this.borrowBookButton_Click);
             // 
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(727, 407);
+            this.Controls.Add(this.borrowBookButton);
             this.Controls.Add(this.deleteClientButton);
             this.Controls.Add(this.addClientButton);
             this.Controls.Add(this.label2);
@@ -221,6 +233,11 @@ namespace LibraryManager
 
         }
 
+        private void borrowBookButton_Click(object sender, EventArgs e)
+        {
+            var borrowBookForm = new BorrowBookForm(context);
+            borrowBookForm.ShowDialog();
+        }
 
     }
 }

@@ -28,5 +28,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addClientButton;
         private System.Windows.Forms.Button deleteClientButton;
+        private System.Windows.Forms.Button borrowBookButton;
     }
 }
