@@ -90,7 +90,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(90, 211);
+            this.saveButton.Location = new System.Drawing.Point(110, 218);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(113, 46);
             this.saveButton.TabIndex = 8;
@@ -112,6 +112,7 @@
             this.Controls.Add(this.label2);
             this.Name = "AddClientForm";
             this.Text = "AddClientForm";
+            this.Load += new System.EventHandler(this.AddClientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

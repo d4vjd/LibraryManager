@@ -103,6 +103,15 @@ namespace LibraryManager
             }
         }
 
+        //borrow book
+
+        private void borrowBookButton_Click(object sender, EventArgs e)
+        {
+            var borrowBookForm = new BorrowBookForm(context);
+            borrowBookForm.ShowDialog();
+        }
+
+
 
 
         private void InitializeComponent()
@@ -218,6 +227,7 @@ namespace LibraryManager
             this.Controls.Add(this.ClientList);
             this.Controls.Add(this.BookList);
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,12 +242,9 @@ namespace LibraryManager
         {
 
         }
-
-        private void borrowBookButton_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            var borrowBookForm = new BorrowBookForm(context);
-            borrowBookForm.ShowDialog();
-        }
 
+        }
     }
 }

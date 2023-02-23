@@ -106,5 +106,10 @@ namespace LibraryManager
         {
 
         }
+
+        private void AddClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
