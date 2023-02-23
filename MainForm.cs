@@ -130,15 +130,15 @@ namespace LibraryManager
             // ClientList
             // 
             this.ClientList.FormattingEnabled = true;
-            this.ClientList.Location = new System.Drawing.Point(533, 40);
+            this.ClientList.Location = new System.Drawing.Point(556, 38);
             this.ClientList.Name = "ClientList";
-            this.ClientList.Size = new System.Drawing.Size(182, 355);
+            this.ClientList.Size = new System.Drawing.Size(251, 355);
             this.ClientList.TabIndex = 1;
             this.ClientList.SelectedIndexChanged += new System.EventHandler(this.ClientList_SelectedIndexChanged);
             // 
             // addBookButton
             // 
-            this.addBookButton.Location = new System.Drawing.Point(323, 38);
+            this.addBookButton.Location = new System.Drawing.Point(340, 70);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.Size = new System.Drawing.Size(133, 46);
             this.addBookButton.TabIndex = 2;
@@ -148,7 +148,7 @@ namespace LibraryManager
             // 
             // deleteBookButton
             // 
-            this.deleteBookButton.Location = new System.Drawing.Point(323, 90);
+            this.deleteBookButton.Location = new System.Drawing.Point(340, 122);
             this.deleteBookButton.Name = "deleteBookButton";
             this.deleteBookButton.Size = new System.Drawing.Size(133, 48);
             this.deleteBookButton.TabIndex = 3;
@@ -176,7 +176,7 @@ namespace LibraryManager
             // 
             // addClientButton
             // 
-            this.addClientButton.Location = new System.Drawing.Point(323, 144);
+            this.addClientButton.Location = new System.Drawing.Point(340, 176);
             this.addClientButton.Name = "addClientButton";
             this.addClientButton.Size = new System.Drawing.Size(133, 46);
             this.addClientButton.TabIndex = 6;
@@ -186,7 +186,7 @@ namespace LibraryManager
             // 
             // deleteClientButton
             // 
-            this.deleteClientButton.Location = new System.Drawing.Point(323, 196);
+            this.deleteClientButton.Location = new System.Drawing.Point(340, 228);
             this.deleteClientButton.Name = "deleteClientButton";
             this.deleteClientButton.Size = new System.Drawing.Size(133, 46);
             this.deleteClientButton.TabIndex = 7;
@@ -196,7 +196,7 @@ namespace LibraryManager
             // 
             // borrowBookButton
             // 
-            this.borrowBookButton.Location = new System.Drawing.Point(323, 248);
+            this.borrowBookButton.Location = new System.Drawing.Point(340, 280);
             this.borrowBookButton.Name = "borrowBookButton";
             this.borrowBookButton.Size = new System.Drawing.Size(133, 58);
             this.borrowBookButton.TabIndex = 8;
@@ -207,7 +207,7 @@ namespace LibraryManager
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(727, 407);
+            this.ClientSize = new System.Drawing.Size(819, 441);
             this.Controls.Add(this.borrowBookButton);
             this.Controls.Add(this.deleteClientButton);
             this.Controls.Add(this.addClientButton);
